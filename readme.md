@@ -97,15 +97,15 @@ A visão futura da IDP API inclui a criação de uma plataforma robusta e versá
 
 ## Contribuições
 
-Como este é um projeto privado atualmente em desenvolvimento para a pesquisa do Projeto PI, as contribuições são limitadas apenas a membros da equipe autorizados. Para consultas sobre envolvimento ou colaboração, por favor, envie uma mensagem de e-mail para [contact@thipimethod.org](mailto:contact@thipimethod.org).
+Como este é um projeto privado atualmente em desenvolvimento para a pesquisa do Projeto PI, as contribuições são limitadas apenas a membros da equipe autorizados. Para consultas sobre envolvimento ou colaboração, por favor, envie uma mensagem de e-mail para [contact@ewdproject.org](mailto:contact@ewdproject.org).
 
 ## Contato
 
-Para consultas ou assistência, entre em contato com [contact@thipimethod.org](mailto:contact@thipimethod.org).
+Para consultas ou assistência, entre em contato com [contact@ewdproject.org](mailto:contact@ewdproject.org).
 
 ## Licença
 
-Este projeto é licenciado sob a Licença Internacional Creative Commons Attribution 4.0. Para visualizar uma cópia desta licença, visite [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/) ou envie uma carta para Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+[GNU GPLv3](./LICENCE.txt)
 
 ---
 
