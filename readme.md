@@ -1,111 +1,110 @@
 © Danilo Florentino Maia, 2024
 
-# Readme da IDP API
+# IDP API Readme
 
-## Visão Geral
+## Overview
 
-A Intelligent Diacritic Placer API (IDP API) é uma aplicação baseada em Python e Flask, projetada para converter textos em inglês para o formato Inglês com Diacríticos (IcD). Esta API serve como uma ferramenta para pesquisa linguística e fins educacionais, especialmente no contexto do Projeto PI.
+The **Intelligent Diacritic Placer API (IDP API)** is an experimental web application built with Python and Flask, designed to convert standard English (En) texts (without diacritics) into **English with Diacritics (EwD)**. This project is part of the **EwD Project**, aimed at providing a phonetic transcription tool for linguistic research, educational purposes, and easing the learning process of English pronunciation.
 
-## Recursos
+## Features
 
-- Converte textos em inglês padrão (IP) para o formato IcD.
-- Suporta diferentes sotaques de inglês.
-- Utiliza um processo único de conversão fonética-grafêmica com base no mapeamento grafema-fonema do SDPI.
+- **Convert En to EwD:** Efficiently transforms standard English text (En) into EwD format.
+- **Accent support:** Handles various English accents for accurate phonetic transcription.
+- **Phonetic-graphemic conversion:** Implements the EwD Grapheme-Phoneme Mapping, ensuring consistent phonetic representation in EwD.
 
-## Instalação
+## Installation
 
-1. Clone o ripositório.
-2. Instale as dipendências necessárias: `pip install -r requirements.txt`.
+1. Clone the repository.
+2. Install the required dependencies: `pip install -r requirements.txt`.
 
-## Uso
+## Usage
 
-Inicie a API com `python app.py`. A API fornece dois endpoints principais:
+To start the API, run:
 
-1. `/api/v1/get-phonetized-text`: Aceita texto em IP e um sotaque de inglês, retornando a versão fonetizada.
-2. `/api/v1/convert-en-to-ewd`: Converte texto em IP para IcD, considerando o sotaque especificado.
+```bash
+python app.py
+```
 
-## Endpoints
+### Endpoints:
 
-### GET Phonetized Text
+1. **Phonetize text:**
 
-- **URL:** `/api/v1/get-phonetized-text`
-- **Método:** `POST`
-- **Parâmetros do Corpo:**
-  - `text`: Texto em IP a ser fonetizado.
-  - `accent`: Sotaque de inglês para conversão (o padrão é `en-us`).
+   - **URL:** `/api/v1/get-phonetized-text`
+   - **Method:** `POST`
+   - **Parameters:**
+     - `text`: The En text to phonetize.
+     - `accent`: The chosen English accent (default: `en-us`).
 
-### Convert EN to IcD
+2. **Convert En to EwD:**
+   - **URL:** `/api/v1/convert-en-to-ewd`
+   - **Method:** `POST`
+   - **Parameters:**
+     - `text`: The En text to convert to EwD.
+     - `accent`: The preferred English accent (default: `en-us`).
 
-- **URL:** `/api/v1/convert-en-to-ewd`
-- **Método:** `POST`
-- **Parâmetros do Corpo:**
-  - `text`: Texto em IP a ser convertido para IcD.
-  - `accent`: Sotaque de inglês para conversão (o padrão é `en-us`).
+## Conversion Process
 
-## Processo de Conversão
+The process for converting En to EwD follows two key steps:
+pytest
 
-A conversão de IP para IcD envolve um processo de transformação fonética-grafêmica em duas etapas:
+1. **Phonetic conversion:**
+   The input En text is phonetically transcribed according to the specified accent using the `phonemizer` library.
 
-1. **Conversão Fonética**: O texto em IP é primeiramente convertido em sua representação fonética (fonetizada) com base no sotaque de inglês especificado. Este processo utiliza a biblioteca `phonemizer` para alcançar transcrições fonéticas precisas.
+2. **Graphemic mapping:**
+   The phonetic transcription is then mapped to its corresponding EwD representation using the **EwD Grapheme-phoneme mapping**, which assigns diacritical marks to reflect pronunciation.
 
-2. **Mapeamento Grafêmico (Mapeamento Grafema-Fonema do SDPI)**: Os dados fonéticos são então mapeados para sua representação correspondente em IcD usando o Mapeamento Grafema-Fonema do SDPI. Este mapeamento envolve tabelas detalhadas de conversão que pareiam fonemas específicos com grafemas correspondentes (letras com diacríticos), transformando efetivamente o inglês padrão em IcD.
+## Documentation
 
-## Documentação
+Detailed API usage documentation is available via **Swagger** at `/swagger`.
 
-Documentação Swagger está disponível em `/swagger` para uso detalhado dos endpoints.
+## Testing
 
-## Testes
+Unit tests are provided for several components. Run the tests using the `pytest` command.
 
-Testes unitários são fornecidos para vários componentes. Execute os testes usando `pytest`.
+## Architecture
 
-## Arquitetura
+The IDP API is built as a monolithic architecture with a focus on simplicity and ease of deployment. It uses SQLite for lightweight data management and Flask as a web framework.
 
-A IDP API é construída como uma arquitetura monolítica com foco em simplicidade e facilidade de implantação. Utiliza SQLite para gestão de dados leve e Flask como framework web.
+## Development and Deployment
 
-## Desenvolvimento e Implantação
+- **Test-Driven Development (TDD):** Fosters quality code and reduces errors.
+- **CI/CD:** Managed via GitHub Actions for streamlined development and deployment.
+- **Monitoring:** Basic monitoring with Grafana and internal Flask logging.
 
-- **Abordagem TDD:** Garante qualidade e minimiza bugs.
-- **CI/CD:** Configuração simplificada usando GitHub Actions.
-- **Monitoramento e Logging:** Monitoramento básico com Grafana e logging interno do Flask.
+## Security
 
-## Segurança
+- **Authentication:** Simplified implementation of OAuth 2.0.
+- **Data security:** Basic TLS for data transmission.
 
-- **Autenticação:** Implementação simplificada do OAuth 2.0.
-- **Segurança dos Dados:** TLS básico para transmissão de dados.
+## Expansion to Other Languages and Accents
 
-## Expansão para Outros Idiomas e Sotaques
+### Expansion Possibilities
 
-### Possibilidades de Expansão
+The IDP API, currently focused on converting standard English to English with Diacritics (EwD), was designed with an architecture that allows for expansion to other languages and a variety of accents. This expansion potential opens new fronts for linguistic research and educational applications in a global context.
 
-A IDP API, atualmente focada na conversão do Inglês Padrão para Inglês com Diacríticos (IcD), foi projetada com uma arquitetura que permite expansão para outros idiomas e uma variedade de sotaques. Este potencial de expansão abre novas frentes para pesquisa linguística e aplicações educacionais em um contexto global.
+### Support for Different Languages
 
-### Suporte a Diferentes Idiomas
+The incorporation of new languages into the IDP API can be achieved by adapting the phonetic conversion process and the grapheme-to-phoneme mapping for each specific language. This includes integrating phonetic libraries and databases that support accurate phonetic transcription for those languages.
 
-A incorporação de novos idiomas na IDP API pode ser realizada através da adaptação do processo de fonetização e do mapeamento grafema-fonema para cada língua específica. Isso inclui a integração de bibliotecas fonéticas e bases de dados que suportem a transcrição fonética precisa desses idiomas.
+### Varied Accents
 
-### Sotaques Variados
+As is already done with English, the IDP API can be adapted to support different accents within the same language. This is essential for capturing the phonetic nuances that characterize regional or national accents, enriching the learning experience and enhancing the precision of linguistic research.
 
-Assim como já é feito com o inglês, a IDP API pode ser adaptada para suportar diferentes sotaques dentro de um mesmo idioma. Isso é essencial para capturar as nuances fonéticas que caracterizam os sotaques regionais ou nacionais, enriquecendo a experiência de aprendizado e a precisão da pesquisa linguística.
+### Challenges and Considerations
 
-### Desafios e Considerações
+Expanding to other languages and accents involves challenges such as the need for in-depth knowledge of the phonetic characteristics of each language and the availability of detailed phonetic and lexical resources. Additionally, it is crucial to consider cultural and linguistic particularities to ensure an accurate and respectful representation of the languages.
 
-A expansão para outros idiomas e sotaques envolve desafios como a necessidade de um conhecimento aprofundado das características fonéticas de cada língua e a disponibilidade de recursos fonéticos e lexicais detalhados. Além disso, é crucial considerar as particularidades culturais e linguísticas para garantir uma representação precisa e respeitosa dos idiomas.
+## Future of the IDP API
 
-## Futuro da IDP API
+The future vision for the IDP API includes creating a robust and versatile platform that can serve as a valuable tool for education and linguistic research across diverse languages and accents, thereby promoting a broader and more inclusive understanding of the various forms of human expression around the world.
 
-A visão futura da IDP API inclui a criação de uma plataforma robusta e versátil que possa servir como uma ferramenta valiosa para a educação e pesquisa linguística em diversos idiomas e sotaques, promovendo assim uma compreensão mais ampla e inclusiva das diversas formas de expressão humana ao redor do mundo.
+## Contributions
 
-## Contribuições
+As this is a private project currently under development for the **EwD Project** research, contributions are limited to authorized people only. For inquiries about involvement or collaboration, please send an email to [contact@ewdproject.org](mailto:contact@ewdproject.org).
 
-Como este é um projeto privado atualmente em desenvolvimento para a pesquisa do Projeto PI, as contribuições são limitadas apenas a membros da equipe autorizados. Para consultas sobre envolvimento ou colaboração, por favor, envie uma mensagem de e-mail para [contact@ewdproject.org](mailto:contact@ewdproject.org).
+## Contact
 
-## Contato
-
-Para consultas ou assistência, entre em contato com [contact@ewdproject.org](mailto:contact@ewdproject.org).
-
-## Licença
-
-[GNU GPLv3](./LICENCE.txt)
+For inquiries or assistance, please contact [contact@ewdproject.org](mailto:contact@ewdproject.org).
 
 ---
 
